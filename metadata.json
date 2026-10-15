@@ -1,0 +1,6 @@
+{
+  "name": "Pastas To Go - Demo Interactivo",
+  "description": "Propuesta interactiva de pedidos en línea para Pastas To Go: Tradición en un Bowl. Menú, personalizador de pastas, simulación de checkout y conexión con WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
