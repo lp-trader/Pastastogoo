@@ -27,7 +27,7 @@ export const MenuItemCard: React.FC<MenuItemCardProps> = ({
     return (
       <div
         onClick={() => onSelect(item)}
-        className="w-[220px] sm:w-[235px] shrink-0 snap-start bg-white rounded-2xl overflow-hidden border border-[#E8DFC8] shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col group active:scale-[0.985]"
+        className="w-[152px] sm:w-[168px] shrink-0 snap-start bg-white rounded-2xl overflow-hidden border border-[#E8DFC8] shadow-2xs hover:shadow-md transition-all cursor-pointer flex flex-col group active:scale-[0.98] select-none"
       >
         {/* Image container */}
         <div className="relative w-full aspect-[4/3] bg-[#EFE6D2] overflow-hidden">
@@ -39,40 +39,50 @@ export const MenuItemCard: React.FC<MenuItemCardProps> = ({
             loading="lazy"
           />
           {item.badge && (
-            <span className="absolute top-2 left-2 bg-[#FAB81E] text-[#5C4200] font-black text-[10px] px-2 py-0.5 rounded-full shadow-xs tracking-tight flex items-center gap-0.5">
+            <span className="absolute top-1.5 left-1.5 bg-[#FAB81E] text-[#5C4200] font-black text-[9px] px-1.5 py-0.5 rounded-md shadow-2xs tracking-tight flex items-center gap-0.5">
               {item.badge}
             </span>
           )}
         </div>
 
         {/* Card content */}
-        <div className="p-3 flex-1 flex flex-col justify-between">
+        <div className="p-2.5 flex-1 flex flex-col justify-between">
           <div>
-            <div className="flex items-baseline justify-between gap-1 mb-1">
-              <h4 className="font-extrabold text-[#143527] text-sm leading-tight truncate">
+            <div className="flex items-start justify-between gap-1 mb-1">
+              <h4 className="font-extrabold text-[#143527] text-xs sm:text-[13px] leading-tight line-clamp-1">
                 {item.name}
               </h4>
-              <span className="font-extrabold text-[#143527] text-sm shrink-0">
-                ${item.price.toFixed(0)}
-              </span>
             </div>
 
-            <p className="text-[11px] text-[#5C665F] leading-tight line-clamp-2 mb-2">
+            <p className="text-[10px] text-[#5C665F] leading-tight line-clamp-2 mb-2">
               {item.description}
             </p>
           </div>
 
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              onSelect(item);
-            }}
-            className="w-full py-1.5 px-3 bg-[#E6392F] hover:bg-[#D42B21] text-white font-bold text-xs rounded-full flex items-center justify-center gap-1.5 shadow-2xs active:scale-95 transition-transform cursor-pointer"
-          >
-            <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
-            Añadir
-          </button>
+          <div>
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="font-black text-[#143527] text-sm">
+                ${item.price.toFixed(0)}
+              </span>
+              {item.rating && (
+                <span className="text-[10px] font-bold text-[#8A6A19]">
+                  ★ {item.rating}
+                </span>
+              )}
+            </div>
+
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                onSelect(item);
+              }}
+              className="w-full py-1.5 px-2 bg-[#E6392F] hover:bg-[#D42B21] text-white font-bold text-[11px] rounded-full flex items-center justify-center gap-1 shadow-2xs active:scale-95 transition-transform cursor-pointer"
+            >
+              <Plus className="w-3 h-3 stroke-[2.5]" />
+              Añadir
+            </button>
+          </div>
         </div>
       </div>
     );
